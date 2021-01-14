@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Add User</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		        
+     	<!-- Bootstrap core CSS -->
+		<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		
+		<!-- Custom fonts for this template -->
+		<link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+		
+		<!-- Plugin CSS -->
+		<link href="/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+		
+		<!-- Custom styles for this template -->
+		<link href="/css/freelancer.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container my-5">
+            <h2>New Appointment</h2>
+            <div class="row">
+                    <form action="#" th:action="@{/addappointmentwidget}" th:object="${appointment}" method="post">    
+						  <div class="row">
+						    <div class="col-sm">
+	   					        <label for="customerId" class="col-form-label">Customer Name</label>
+								<select name="customerList" id="customerList" th:field="${appointment.customerId}" class="form-control">
+									<option th:each="customer : ${customerList}" th:value="${customer.id}" th:text="${customer.firstName} + ' ' + ${customer.lastName}"></option>
+								</select>
+						    </div>
+						    <div class="col-sm">
+					            <label for="Barber" class="col-form-label">Barber Name</label>
+								<select name="barberList" id="barberList" th:field="${appointment.barberId}" class="form-control">
+									<option th:each="barber : ${barberList}" th:value="${barber.id}" th:text="${barber.firstName} + ' ' + ${barber.lastName}"></option>								    
+								</select>
+						    </div>
+						    <div class="col-sm">
+								<label for="appDate" class="col-form-label">Appointment Date</label>
+								<input type="datetime-local" th:field="*{appDate}" class="form-control" id="appDate">
+						    </div>
+						  </div>
+                        <div class="row">
+                            <div class="col-md-6 mt-5">
+                                <input type="submit" onclick="myFunction()" class="btn btn-primary" value="Add appointment">
+                            </div>
+                        </div>    					
+                    </form>
+            </div>
+        </div>
+        <script>
+			function myFunction() {
+			  alert("Appointment added successfully!");
+			}
+		</script>
+    </body>
+</html>
