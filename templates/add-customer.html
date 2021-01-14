@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Add User</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		        
+     	<!-- Bootstrap core CSS -->
+		<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		
+		<!-- Custom fonts for this template -->
+		<link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+		
+		<!-- Plugin CSS -->
+		<link href="/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
+		
+		<!-- Custom styles for this template -->
+		<link href="/css/freelancer.min.css" rel="stylesheet">
+    </head>
+    <body>
+	<!-- Navigation -->
+		<nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+		  <div class="container">
+		    <a class="navbar-brand js-scroll-trigger" href="/">Customers</a>
+		    <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+		      Menu
+		      <i class="fas fa-bars"></i>
+		    </button>
+		    <div class="collapse navbar-collapse" id="navbarResponsive">
+		      <ul class="navbar-nav ml-auto">
+    		    <li class="nav-item mx-0 mx-lg-1">
+		          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/appointmentsignup">New Appointment</a>
+		        </li>
+		        <li class="nav-item mx-0 mx-lg-1">
+		          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/appointmentmanager">Appointments</a>
+		        </li>
+		        <li class="nav-item mx-0 mx-lg-1">
+		          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/barbermanager">Barbers</a>
+		        </li>
+		        <li class="nav-item mx-0 mx-lg-1">
+		          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/customermanager">Customers</a>
+		        </li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+        <div class="container my-5">
+            <h2 class="mb-5">New User</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <form action="#" th:action="@{/addcustomer}" th:object="${customer}" method="post">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="firstName" class="col-form-label">First Name</label>
+                                <input type="text" th:field="*{firstName}" class="form-control" id="firstName" placeholder="John">
+                                <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="lastName" class="col-form-label">Last Name</label>
+                                <input type="text" th:field="*{lastName}" class="form-control" id="lastName" placeholder="Smith">
+                                <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="email" class="col-form-label">Email</label>
+                                <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="your.name@Thrivent.com">
+                                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="email" class="col-form-label">Address</label>
+                                <input type="text" th:field="*{address}" class="form-control" id="address" placeholder="4321 N Ballard">
+                                <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="country" class="col-form-label">Country</label>
+                                <input type="text" th:field="*{country}" class="form-control" id="country" placeholder="United States">
+                                <span th:if="${#fields.hasErrors('country')}" th:errors="*{country}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="state" class="col-form-label">State</label>
+                                <input type="text" th:field="*{state}" class="form-control" id="state" placeholder="WI">
+                                <span th:if="${#fields.hasErrors('state')}" th:errors="*{state}" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="phone" class="col-form-label">Phone</label>
+                                <input type="text" th:field="*{phone}" class="form-control" id="phone" placeholder="1-(800)-847-4836">
+                                <span th:if="${#fields.hasErrors('phone')}" th:errors="*{email}" class="text-danger"></span>
+                            </div>                       
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mt-5">
+                                <input type="submit" class="btn btn-primary" value="Add Customer">
+                            </div>
+                        </div>    					
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+			document.getElementById("activeIndicator").setAttribute("checked","checked")
+		</script>
+    </body>
+
+</html>
